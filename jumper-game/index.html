@@ -1,0 +1,33 @@
+<html>
+   
+       
+
+    <head>
+        <title> jumper game </title>
+        <meta charset="UTF-8" />
+        
+        <style>
+            #gameScreen {
+               border: 3px solid black; 
+            }
+
+            img{
+                display: none
+            }
+        
+        </style>
+    </head>
+
+    <body id = "body">
+        <img id= "img_char" src="https://images.pexels.com/photos/2538412/pexels-photo-2538412.jpeg?auto=compress&cs=tinysrgb&h=750&w=1260">
+        <img id= "img_brick" src="https://images.unsplash.com/photo-1508007226633-b7de6a10cb16?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1176&q=80">
+        <canvas id="gameScreen" width="500" height="500"></canvas>
+        
+    </body>
+    <script type="text/javascript" src= "collisionDetection.js" ></script>
+    <script type="text/javascript" src= "input.js" ></script>
+    <script type="text/javascript" src= "brick.js" ></script>
+    <script type="text/javascript" src= "character.js" ></script>
+    <script type="text/javascript" src= "game.js" ></script>
+    <script type="text/javascript" src= "index.js" ></script>
+</html>
