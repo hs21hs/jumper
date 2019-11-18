@@ -1,5 +1,6 @@
 document.addEventListener("DOMContentLoaded", first)
 
+var checker;
 
 
 function first(){
@@ -19,8 +20,11 @@ function first(){
         ctx.clearRect(0, 0, game_width, game_height)
         
         game.char.draw(ctx)
-        game.brick.draw(ctx)
+        game.bricks.forEach(brick => brick.draw(ctx))
+        game.bricks.forEach(brick => brick.update())
+        //game.brick.update()
         game.char.update()
+        
 
         requestAnimationFrame(gameLoop)
     }
