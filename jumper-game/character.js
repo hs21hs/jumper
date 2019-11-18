@@ -23,19 +23,15 @@ class Character{
         const leftOfChar = this.position.x
         const rightOfChar = this.position.x + this.width
         
-        if (checker === 0){
-            debugger
-        }
+        // if (checker === 0){
+        //     debugger
+        // }
       
 
         const bottomOfCtx = 500
         //if hes jumping let him only go up 50 px
         if (this.position.y < this.placeholder-120){
             this.speedVer = -this.speedVer
-        }
-        // if hes moving right or left stop after 5px
-        if (this.position.x > this.placeholderHor+5 || this.position.x < this.placeholderHor-5 ){
-            this.speedHor = 0
         }
          
         //if hes falling and hits the bottom of screen set speedVer to 0 

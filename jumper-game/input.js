@@ -14,16 +14,37 @@ constructor(game){
             break;
 
             case 37:
-                game.char.placeholderHor = game.char.position.x
+                
+                
                 game.char.speedHor = -5
             break;
 
             case 39:
+                
                 game.char.placeholderHor = game.char.position.x
                 game.char.speedHor = 5
             break;
         }
     })
+    document.addEventListener("keyup", event => {
+        switch (event.keyCode){
+
+            case 37:
+                if (game.char.speedHor < 0){
+                    game.char.speedHor = 0
+                }
+            break;
+
+            case 39:
+                if (game.char.speedHor > 0){
+                    game.char.speedHor = 0
+                }
+            break;
+        }
+    })
+
 }
+
+
 
 }
