@@ -3,8 +3,8 @@ class Character{
     constructor(game){
         this.game = game
         this.image = document.getElementById("img_char")
-        this.width = 80
-        this.height = 80
+        this.width = 20
+        this.height = 50
         this.position = {x: 250, y:500 - this.height}
         this.speedVer = 0
         this.speedHor = 0

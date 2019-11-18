@@ -4,24 +4,21 @@ var checker;
 
 
 function first(){
-    const canvas = document.getElementById("gameScreen")
     
-    const game_width = canvas.width
-    const game_height = canvas.height
-    
-
-
-    const ctx = canvas.getContext("2d")
 
     const game = new Game()
 
     function gameLoop(timestamp){
         
-        ctx.clearRect(0, 0, game_width, game_height)
+        game.ctx.clearRect(0, 0, 500, 500)
+        // setTimeout(function(){ debugger; }, 3000);
+        game.char.draw(game.ctx)
         
-        game.char.draw(ctx)
-        game.bricks.forEach(brick => brick.draw(ctx))
+        game.bricks.forEach(brick => brick.draw(game.ctx))
         game.bricks.forEach(brick => brick.update())
+
+        game.enemies.forEach(enemy => enemy.draw(game.ctx))
+        game.enemies.forEach(enemy => enemy.update())
         //game.brick.update()
         game.char.update()
         
