@@ -30,7 +30,7 @@ class Character{
 
         const bottomOfCtx = 500
         //if hes jumping let him only go up 50 px
-        if (this.position.y < this.placeholder-120){
+        if (this.position.y < this.placeholder-100){
             this.speedVer = -this.speedVer
         }
          

@@ -1,12 +1,12 @@
 class Brick{
 
-    constructor(game, x, y){
+    constructor(game, x, y, top = false){
         this.position = {x: x, y: y}
         this.width = 150
         this.height = 20
         this.game = game
-        this.enemyCreated = false
-
+        this.topBrick = top
+        
     }
 
     draw(ctx){
@@ -26,20 +26,16 @@ class Brick{
         const leftOfBrick = this.position.x
     
         
+        
+
 
     //if he falls atop of a brick, 0 his speed and crearte an enemy
     if(bottomOfChar === topOfBrick && (leftOfChar < rightOfBrick && rightOfChar > leftOfBrick)&& this.game.char.speedVer > 0){
         this.game.char.speedVer = 0
-        if (this.enemyCreated === false){
-            const enemy = new Enemy()
-            enemy.position.x = this.position.x;
-            enemy.position.y = this.position.y - enemy.height;
-            enemy.speedHor = 1
-            enemy.brick = this
-            this.game.enemies.push(enemy)
-            this.enemyCreated = true
+        
+            
             // checker = 0;
-        }
+        
     }
 
     //if hes off the ground and his speed ver is 0 and his side is not sitting on a brick: +5 his ver speed
@@ -49,5 +45,31 @@ class Brick{
         
     }
     //if his top hits the bottom of the break rev his yspeed
-    }
+    
+    this.game.enemies.forEach(enemy => {
+        const topOfEnemy = enemy.position.y
+        const bottomOfEnemy = enemy.position.y + enemy.height
+        const rightOfEnemy = enemy.position.x+enemy.width
+        const leftOfEnemy = enemy.position.x
+
+        if(bottomOfEnemy === topOfBrick && enemy.speedVer === 0 && (leftOfBrick=== rightOfEnemy +1 || rightOfBrick === leftOfEnemy -1) && (leftOfEnemy > rightOfBrick || rightOfEnemy < leftOfBrick)){
+            enemy.speedVer = 1;
+            enemy.speedHor = 0;
+        }
+
+        if(bottomOfEnemy === topOfBrick && (leftOfEnemy < rightOfBrick && rightOfEnemy > leftOfBrick)&& enemy.speedVer > 0){
+            enemy.speedVer = 0;
+            if (Math.random()>0.5){
+                enemy.speedHor = 1
+            }else{
+                enemy.speedHor = -1
+            }
+        }
+    });
+    
+
+}
+
+    
+
 }

@@ -6,7 +6,9 @@ class Enemy{
         this.width = 20
         this.height = 50
         this.speedHor = 0
+        this.speedVer = 0
         this.brick;
+        
     }
 
 
@@ -17,9 +19,7 @@ class Enemy{
 
     update(){
         this.position.x += this.speedHor
-        if (this.position.x + this.width === this.brick.position.x + this.brick.width){
-            this.speedHor = 0
-        }
+        this.position.y += this.speedVer
     }
 
 }

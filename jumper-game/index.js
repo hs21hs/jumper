@@ -4,9 +4,26 @@ var checker;
 
 
 function first(){
-    
+    function createEnemies(){
+        const topBrick = game.bricks.filter(brick => brick.topBrick === true)
+        const enemy = new Enemy()
 
+            if (Math.random()>0.5){
+            enemy.position.x = topBrick[0].position.x;
+            enemy.position.y = topBrick[0].position.y - enemy.height;
+            enemy.speedHor = 1
+           
+            game.enemies.push(enemy)
+            }else{
+                enemy.position.x = topBrick[1].position.x;
+            enemy.position.y = topBrick[1].position.y - enemy.height;
+            enemy.speedHor = -1
+           
+            game.enemies.push(enemy)
+    }}
     const game = new Game()
+setInterval(createEnemies,500)
+    
 
     function gameLoop(timestamp){
         
@@ -22,9 +39,10 @@ function first(){
         //game.brick.update()
         game.char.update()
         
-
         requestAnimationFrame(gameLoop)
-    }
+            }
+        
+    
 
     requestAnimationFrame(gameLoop)
 
